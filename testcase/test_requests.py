@@ -19,7 +19,7 @@ class TestRequests(object):
 		r=requests.post(self.url,
 		                json={"a":1,"b":"string corntent"},
 		                # headers={"a":"1","b":"b2"},
-		                proxies={"https":"127.0.0.1:8888","http":"127.0.0.1:8888"},
+		                # proxies={},
 		                verify=False
 		                )
 		logging.info(r.url)
@@ -27,7 +27,7 @@ class TestRequests(object):
 		logging.info(json.dumps(r.json(),indent=2))
 
 	def test_cookies(self):
-		r=requests.get("http://47.95.238.18:8090/cookies",cookies={"a":"1","b":"string"})
+		r=requests.get("http://*/cookies",cookies={"a":"1","b":"string"})
 		logging.info(r.text)
 
 	def test_xuqqiu_quote(self):
