@@ -30,7 +30,7 @@ class TestRequests(object):
 		r=requests.get("http://*/cookies",cookies={"a":"1","b":"string"})
 		logging.info(r.text)
 
-	def test_xuqqiu_quote(self):
+	def test_xueqiu_quote(self):
 		pass
 
 
