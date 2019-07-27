@@ -27,7 +27,10 @@ class TestRequests(object):
 		logging.info(json.dumps(r.json(),indent=2))
 
 	def test_cookies(self):
-		r=requests.get("http://*/cookies",cookies={"a":"1","b":"string"})
+		url = "https://stock.xueqiu.com/v5/stock/portfolio/stock/list.json?"
+		r=requests.get(url,
+		               params={"category":"2"},
+		               cookies={"a":"1","b":"string"})
 		logging.info(r.text)
 
 	def test_xueqiu_quote(self):
