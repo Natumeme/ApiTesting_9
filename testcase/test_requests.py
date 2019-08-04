@@ -55,6 +55,7 @@ class TestRequests(object):
 		assert_that(["a","b","c"],any_of(has_items("c","d"),has_items("c","a")))
 
 	def test_homework(self):
+		#课间作业
 		url = "https://stock.xueqiu.com/v5/stock/portfolio/stock/list.json?"
 		r = requests.get(url,
 		                 params={"category": "1"},
