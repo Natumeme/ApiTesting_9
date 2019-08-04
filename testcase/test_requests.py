@@ -41,7 +41,7 @@ class TestRequests(object):
 		                 headers={'User-Agent': 'Xueqiu Android 11.19'},
 		                 cookies={"u": "6465710483", "xq_a_token": "f0c5a085040d507702cdeb99d51243451fc63d35"}
 		                 )
-		# logging.info(json.dumps(r.json(),ensure_ascii=False,indent=2))
+		logging.info(json.dumps(r.json(),ensure_ascii=False,indent=2))
 		assert r.json()["data"]["category"] == 1
 		assert r.json()["data"]["stocks"][0]["name"] == "招商银行"
 		assert jsonpath.jsonpath(r.json(),"$.data.stocks[?(@.symbol == 'SH600036')].name")[0] == "招商银行"
