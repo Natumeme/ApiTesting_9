@@ -1,5 +1,6 @@
 #!usr/bin/env python
 #-*- coding:utf-8 -*-
+import json
 
 import requests
 
@@ -7,7 +8,7 @@ from weixin.contact.token import Weixin
 import logging
 
 
-class TestDepartment(object):
+class TestDepartment:
 	logging.basicConfig(level=logging.DEBUG)
 	@classmethod
 	def setup_class(cls):
@@ -25,8 +26,14 @@ class TestDepartment(object):
 			"order": 1,
 			"id": 2
 		}
-		r=requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
-					params={"access_token":Weixin.get_token()},
-					json=data
-		            ).json()
+		r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
+		                  params={"access_token": Weixin.get_token()},
+		                  json=data
+		                  ).json()
 		logging.debug(r)
+
+	def test_get(self):
+		r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/department/list",
+		             params={"access_token":Weixin.get_token()}
+		             ).json()
+		logging.debug(json.dumps(r,indent=2,ensure_ascii=False))
