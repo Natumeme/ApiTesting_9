@@ -14,9 +14,9 @@ class Weixin:
 		if len(cls._token)==0:
 			conf=yaml.safe_load(open("weixin.yaml"))
 			logging.debug(conf["env"])
-			requests.get("https://qyapi.weixin.qq.com/cgi-bin/gettoken",
-			             params={"corpid":conf["env"]["corpid"],
-			                     "corpsecret":conf["env"]["corpsecret"]}
+			r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/gettoken",
+			             params={"corpid":conf["env"]["corp_id"],
+			                     "corpsecret":conf["env"]["secret"]}
 			             ).json()
 			cls._token=r["access_token"]
 			return cls._token

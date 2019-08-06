@@ -6,4 +6,5 @@ from unittest import TestCase
 
 class TestWeixin(TestCase):
 	def test_get_token(self):
+		print(Weixin.get_token())
 		assert Weixin.get_token() != ""
