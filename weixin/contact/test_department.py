@@ -1,15 +1,15 @@
 #!usr/bin/env python
 #-*- coding:utf-8 -*-
+
 import json
-
 import requests
-
 from weixin.contact.token import Weixin
 import logging
 
 
 class TestDepartment:
 	logging.basicConfig(level=logging.DEBUG)
+
 	@classmethod
 	def setup_class(cls):
 		print("setup class")
