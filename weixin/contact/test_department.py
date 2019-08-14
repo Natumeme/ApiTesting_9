@@ -27,7 +27,7 @@ class TestDepartment:
 			"id": 2
 		}
 		r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
-		                  params={"access_token": Weixin.get_token()},
+		                  params={"access_token":Weixin.get_token()},
 		                  json=data
 		                  ).json()
 		logging.debug(r)
