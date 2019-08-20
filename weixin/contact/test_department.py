@@ -1,11 +1,11 @@
 #!usr/bin/env python
 #-*- coding:utf-8 -*-
-
+import datetime
 import json
 import requests
 from weixin.contact.token import Weixin
 import logging
-import yaml
+import pytest
 
 
 class TestDepartment:
@@ -20,20 +20,27 @@ class TestDepartment:
 	def setup(self):
 		print("setup")
 
-	def test_create_name(self):
-		data={
-			"name": "第十期_natume",
-			"parentid": 1
-		}
-		r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
-		                  params={"access_token":Weixin.get_token()},
-		                  json=data
-		                  ).json()
-		logging.debug(r)
+	def test_create_depth(self):
+		parentid=1
+		for i in range(5):
+			data={
+				"name": "第九期_natume_"+str(parentid)+str(datetime.datetime.now().timestamp()),
+				"parentid": parentid
+			}
+			r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
+			                  params={"access_token":Weixin.get_token()},
+			                  json=data
+			                  ).json()
+			logging.debug(r)
+			parentid=r["id"]
+			assert r["errorcode"]==0
 
-	def test_create(self):
+	@pytest.mark.parametrize("name",[
+		"广州研发中心"
+	])
+	def test_create_order(self):
 		data = {
-			"name": "广州研发中心",
+			"name": name,
 			"parentid": 1,
 			"order": 1
 		}
@@ -42,6 +49,7 @@ class TestDepartment:
 		                  json=data
 		                  ).json()
 		logging.debug(r)
+		assert r["errorcode"]==0
 
 	def test_get(self):
 		r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/department/list",
