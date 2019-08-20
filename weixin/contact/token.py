@@ -11,12 +11,11 @@ class Weixin:
 	@classmethod
 	def get_token(cls):
 		#完成初始化
-		if len(cls._token)==0:
-			conf=yaml.safe_load(open("weixin.yaml"))
-			logging.debug(conf["env"])
-			r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/gettoken",
-			             params={"corpid":conf["env"]["corpid"],
-			                     "corpsecret":conf["env"]["secret"]}
-			             ).json()
-			cls._token=r["access_token"]
-			return cls._token
+		conf=yaml.safe_load(open("weixin.yaml"))
+		logging.debug(conf["env"])
+		r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/gettoken",
+		             params={"corpid":conf["env"]["corpid"],
+		                     "corpsecret":conf["env"]["secret"]}
+		             ).json()
+		cls._token=r["access_token"]
+		return cls._token
