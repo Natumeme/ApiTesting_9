@@ -21,6 +21,7 @@ class TestDepartment:
 		print("setup")
 
 	def test_create_depth(self):
+		#创建部门
 		parentid=1
 		for i in range(5):
 			data={
@@ -48,10 +49,13 @@ class TestDepartment:
 		                  params={"access_token": Weixin.get_token()},
 		                  json=data
 		                  ).json()
+
+		#解密
 		logging.debug(r)
 		assert r["errorcode"]==0
 
 	def test_get(self):
+		#获取部门
 		r=requests.get("https://qyapi.weixin.qq.com/cgi-bin/department/list",
 		             params={"access_token":Weixin.get_token()}
 		             ).json()
