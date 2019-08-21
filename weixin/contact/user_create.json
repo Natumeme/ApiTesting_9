@@ -1,16 +1,15 @@
 {
     "userid": "zhangsan",
-    "name": "张三",
+    "name": "{{name}}",
     "alias": "jackzhang",
     "mobile": "15913215421",
     "department": [1, 2],
     "order":[10,40],
-    "position": "产品经理",
+    "position": "{{title}}",
     "gender": "1",
-    "email": "zhangsan@gzdev.com",
+    "email": "{{email}}",
     "is_leader_in_dept": [1, 0],
     "enable":1,
-    "avatar_mediaid": "2-G6nrLmr5EC3MNb_-zL1dDdzkd0p7cNliYu9V5w7o8K0",
     "telephone": "020-123456",
     "address": "广州市海珠区新港中路",
     "extattr": {
@@ -58,7 +57,7 @@
                 "miniprogram": {
                     "appid": "wx8bd80126147df384",
                     "pagepath": "/index",
-                    "title": "my miniprogram"
+                    "title": "my"
                 }
             }
         ]
