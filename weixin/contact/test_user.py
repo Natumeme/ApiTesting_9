@@ -12,7 +12,7 @@ from weixin.contact.utils import Utils
 
 class TestUser:
 	logging.basicConfig(level=logging.DEBUG)
-	depart_id=1
+	depart_id=278
 	@classmethod
 	def setup_class(cls):
 		#todo: create
@@ -20,14 +20,14 @@ class TestUser:
 
 	def test_create(self):
 		#创建成员
-		uid="natume"+time.strftime("%H%M%S")
+		uid="natume"+Utils.udid()
 		data={
 			"userid":uid,
 			"name":uid,
 			"department":[self.depart_id],
 			"email":uid+"@testerhome.com"
 		}
-		r=self.user.create(data=data)
+		r=self.user.create(data)
 		logging.debug(r)
 		assert r["errcode"]==0
 
@@ -52,7 +52,7 @@ class TestUser:
 		# r=self.user.list()
 		# logging.debug(json.dumps(r,ensure_ascii=False,indent=2))
 		#assert r["errcode"] == 0
-		r=self.user.list(department_id=65)
+		r=self.user.list(department_id=278)
 		logging.debug(json.dumps(r, ensure_ascii=False, indent=2))
 
 

@@ -14,7 +14,7 @@ class TestDepartment:
 	logging.basicConfig(level=logging.DEBUG)
 	def test_create_depth(self,token):
 		#创建部门
-		parentid=1
+		parentid=278
 		for i in range(5):
 			data={
 				"name": "第九期_natume_"+str(parentid)+str(time.time()),
@@ -29,7 +29,7 @@ class TestDepartment:
 			assert r["errorcode"]==0
 
 	@pytest.mark.parametrize("name",[
-		"广州研发中心"
+		"妖精尾巴工会"
 	])
 	def test_create_order(self,name,token):
 		data = {
@@ -44,7 +44,7 @@ class TestDepartment:
 
 		#解密
 		logging.debug(r)
-		assert r["errorcode"]==0
+		assert r["errcode"]==0
 
 	def test_get(self,token):
 		#获取部门

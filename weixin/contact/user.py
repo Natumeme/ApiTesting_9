@@ -6,11 +6,10 @@ from weixin.contact.token import Weixin
 
 
 class User:
-	def create(self,dict=None,data=None):
+	def create(self,dict):
 		return requests.post("https://qyapi.weixin.qq.com/cgi-bin/user/create",
 		                  params={"access_token": Weixin.get_token()},
-		                  json=dict,
-		                  data=data
+		                  json=dict
 		                ).json()
 
 	def list(self,department_id=1,fetch_child=0,**kwargs):
