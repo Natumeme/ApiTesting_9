@@ -10,6 +10,13 @@ class Weixin:
 	_token= ""
 	@classmethod
 	def get_token(cls):
+		if len(cls._token)==0:
+			#完成初始化
+			cls._token=cls.get_token_new()
+		return cls._token
+
+	@classmethod
+	def get_token_new(cls):
 		#完成初始化
 		conf=yaml.safe_load(open("weixin.yaml"))
 		logging.debug(conf["env"])
@@ -17,5 +24,4 @@ class Weixin:
 		             params={"corpid":conf["env"]["corpid"],
 		                     "corpsecret":conf["env"]["secret"]}
 		             ).json()
-		cls._token=r["access_token"]
-		return cls._token
+		return r["access_token"]

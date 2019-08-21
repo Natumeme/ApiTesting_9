@@ -36,9 +36,9 @@ class TestUser:
 		uid = "natume" + str(time.time())
 		mobile=str(time.time()).replace(".","")[0:11]
 		data=str(Utils.parse("user_create.json",{
-			"name":"natume",
+			"name":uid,
 			"title":"校长",
-			"email":"1@1.com",
+			"email":mobile+"@qq.com",
 			"mobile":mobile
 		}))
 		data=data.encode("UTF-8")
