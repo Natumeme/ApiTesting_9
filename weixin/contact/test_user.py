@@ -57,7 +57,7 @@ class TestUser:
 
 	def test_read_user(self):
 		#读取成员
-		r=self.user.read(userid="ruhi001")
+		r=self.user.read()
 		logging.debug(json.dumps(r, ensure_ascii=False, indent=2))
 
 
