@@ -2,6 +2,8 @@
 #-*- coding:utf-8 -*-
 
 import requests
+
+from weixin.contact.conftest import token
 from weixin.contact.token import Weixin
 
 
