@@ -33,7 +33,7 @@ class TestUser:
 
 	def test_create_by_real(self):
 		#使用mustache模板生成参数
-		uid = "natume" + str(time.time())
+		uid = "ruhi" + str(time.time())
 		mobile=str(time.time()).replace(".","")[0:11]
 		data=str(Utils.parse("user_create.json",{
 			"name":uid,
@@ -52,8 +52,12 @@ class TestUser:
 		# r=self.user.list()
 		# logging.debug(json.dumps(r,ensure_ascii=False,indent=2))
 		#assert r["errcode"] == 0
-		r=self.user.list(department_id=278)
+		r=self.user.list(department_id=2)
 		logging.debug(json.dumps(r, ensure_ascii=False, indent=2))
+
+	def test_delete_user(self):
+		#删除成员
+		r=self.user.delete()
 
 
 

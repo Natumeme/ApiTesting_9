@@ -6,10 +6,10 @@ from weixin.contact.token import Weixin
 
 
 class User:
-	def create(self,dict):
+	def create(self,data):
 		return requests.post("https://qyapi.weixin.qq.com/cgi-bin/user/create",
 		                  params={"access_token": Weixin.get_token()},
-		                  json=dict
+		                  data=data
 		                ).json()
 
 	def list(self,department_id=1,fetch_child=0,**kwargs):
@@ -20,3 +20,12 @@ class User:
 		return requests.get("https://qyapi.weixin.qq.com/cgi-bin/user/simplelist",
 		                 params=params
 		                ).json()
+
+	def delete(self):
+		params={
+			"access_token": Weixin.get_token(),
+			"userid":"tuhi001"
+		}
+		return requests.get("https://qyapi.weixin.qq.com/cgi-bin/user/delete",
+		                    params=params
+		                    ).json

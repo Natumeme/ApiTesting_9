@@ -1,8 +1,8 @@
 {
-    "userid": "zhangsan",
-    "name": "{{name}}",
+    "userid": "ruhi001",
+    "name": "{{uid}}",
     "alias": "jackzhang",
-    "mobile": "15913215421",
+    "mobile": "{{mobile}}",
     "department": [1, 2],
     "order":[10,40],
     "position": "{{title}}",
@@ -34,7 +34,7 @@
     "to_invite": true,
     "external_position": "高级产品经理",
     "external_profile": {
-        "external_corp_name": "企业简称",
+        "external_corp_name": "",
         "external_attr": [
             {
                 "type": 0,
