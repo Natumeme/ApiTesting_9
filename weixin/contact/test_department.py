@@ -16,21 +16,21 @@ class TestDepartment:
 	def setup_class(cls):
 		cls.department = Department()
 
-	def test_create_depth(self,token):
-		#创建部门
-		parentid=278
-		for i in range(5):
-			data={
-				"name": "第九期_natume_"+str(parentid)+str(time.time()),
-				"parentid": parentid
-			}
-			r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
-			                  params={"access_token":token},
-			                  json=data
-			                  ).json()
-			logging.debug(r)
-			parentid=r["id"]
-			assert r["errorcode"]==0
+	# def test_create_depth(self,token):
+	# 	#创建部门
+	# 	parentid=278
+	# 	for i in range(5):
+	# 		data={
+	# 			"name": "第九期_natume_"+str(parentid)+str(time.time()),
+	# 			"parentid": parentid
+	# 		}
+	# 		r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/department/create",
+	# 		                  params={"access_token":token},
+	# 		                  json=data
+	# 		                  ).json()
+	# 		logging.debug(r)
+	# 		parentid=r["id"]
+	# 		assert r["errorcode"]==0
 
 	@pytest.mark.parametrize("name",[
 		"妖精尾巴"
