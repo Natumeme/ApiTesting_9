@@ -28,4 +28,13 @@ class User:
 		}
 		return requests.get("https://qyapi.weixin.qq.com/cgi-bin/user/delete",
 		                    params=params
-		                    ).json
+		                    ).json()
+
+	def read(self,userid="ruhi001"):
+		params={
+			"access_token": Weixin.get_token(),
+			"userid":userid
+		}
+		return requests.get("https://qyapi.weixin.qq.com/cgi-bin/user/get",
+		                    params=params
+		                    ).json()

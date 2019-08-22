@@ -55,10 +55,16 @@ class TestUser:
 		r=self.user.list(department_id=2)
 		logging.debug(json.dumps(r, ensure_ascii=False, indent=2))
 
+	def test_read_user(self):
+		#读取成员
+		r=self.user.read(userid="ruhi001")
+		logging.debug(json.dumps(r, ensure_ascii=False, indent=2))
+
+
 	def test_delete_user(self):
 		#删除成员
 		r=self.user.delete()
-
+		logging.debug(r)
 
 
 	def test_get_user(self):
